@@ -17,10 +17,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create .env file
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
-          echo "DATABASE_URL=${{ env.DATABASE_URL }}" >> .env
+          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
